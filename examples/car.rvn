@@ -1,0 +1,36 @@
+
+pub enum Gear {
+    Park,
+    Neutral,
+    Drive,
+    Reverse,
+}
+
+pub struct Car {
+
+    engine_started: bool;
+    gear: Gear;
+
+    pub fn new() -> Car {
+        Car { engine_started: false, gear: Gear::Park, }
+    }
+
+    pub fn start(mut self) {
+        self.engine_started = true;
+    }
+
+    pub fn shutoff(mut self) {
+        self.engineStarted = false;
+    }
+
+    pub fn switch_gear(mut self, gear: Gear) {
+        self.gear = gear;
+    }
+}
+
+
+
+
+fn main() {
+    var car = Car::new();
+}

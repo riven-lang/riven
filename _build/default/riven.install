@@ -1,0 +1,5 @@
+lib: [
+  "_build/install/default/lib/riven/META"
+  "_build/install/default/lib/riven/dune-package"
+  "_build/install/default/lib/riven/opam"
+]

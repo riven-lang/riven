@@ -1,0 +1,108 @@
+type token =
+    TRUE
+  | STRUCT
+  | STRING of string
+  | STAR
+  | SEMICOLON
+  | SELF
+  | RPAREN
+  | RBRACK
+  | RBRACE
+  | RARROW
+  | RANGLE
+  | PUB
+  | PLUS
+  | PERCENT
+  | MINUS
+  | LPAREN
+  | LOOP
+  | LET
+  | LESSEQUAL
+  | LBRACK
+  | LBRACE
+  | LANGLE
+  | INT of int
+  | IF
+  | ID of string
+  | GREATEREQUAL
+  | FN
+  | FALSE
+  | EQUALEQUAL
+  | EQUAL
+  | EOF
+  | ENUM
+  | ELSE
+  | DOTDOTDOT
+  | DOT
+  | DIVIDE
+  | CONST
+  | COMMA
+  | COLONCOLON
+  | COLON
+  | CHAR of char
+  | BARBAR
+  | BAR
+  | BANGEQUAL
+  | BANG
+  | AMPERSAND
+  | AMPERAMPER
+val make_loc : Lexing.position * Lexing.position -> Ast.Ast_types.Location.t
+val make_ty :
+  Lexing.position * Lexing.position -> Parse_tree.ty_kind -> Parse_tree.ty
+val make_id :
+  Lexing.position * Lexing.position ->
+  Ast.Ast_types.Ident.t -> Parse_tree.identifier
+val make_path :
+  Lexing.position * Lexing.position ->
+  Parse_tree.identifier list -> Parse_tree.path
+val make_item :
+  Lexing.position * Lexing.position ->
+  Parse_tree.item_kind -> Parse_tree.item
+val make_expression :
+  Lexing.position * Lexing.position ->
+  Parse_tree.expr_kind -> Parse_tree.expression
+val make_block :
+  Lexing.position * Lexing.position ->
+  Parse_tree.statement list option -> Parse_tree.block
+val make_statement :
+  Lexing.position * Lexing.position ->
+  Parse_tree.stmt_kind -> Parse_tree.statement
+val make_param :
+  Lexing.position * Lexing.position ->
+  Parse_tree.identifier -> Parse_tree.ty -> Parse_tree.param
+val make_file :
+  Lexing.position * Lexing.position ->
+  Parse_tree.item list -> Parse_tree.file
+val menhir_begin_marker : int
+val xv_unary_expression : Parse_tree.expression
+val xv_ty : Parse_tree.ty
+val xv_tuple_inner_expressions : Parse_tree.expression list
+val xv_tuple_expression : Parse_tree.expression
+val xv_statements : Parse_tree.statement list
+val xv_statement : Parse_tree.statement
+val xv_separated_nonempty_list_COMMA_param_ : Parse_tree.param list
+val xv_separated_list_COMMA_param_ : Parse_tree.param list
+val xv_path_segments : Parse_tree.identifier list
+val xv_path_expression : Parse_tree.expression
+val xv_path : Parse_tree.path
+val xv_paren_expression : Parse_tree.expression
+val xv_params : Parse_tree.param list
+val xv_param : Parse_tree.param
+val xv_option_fn_return_type_ : Parse_tree.ty option
+val xv_option_block_stmts_ : Parse_tree.statement list option
+val xv_loption_separated_nonempty_list_COMMA_param__ : Parse_tree.param list
+val xv_literal_expression : Parse_tree.expression
+val xv_literal : Parse_tree.literal
+val xv_list_item_ : Parse_tree.item list
+val xv_item : Parse_tree.item
+val xv_identifier : Parse_tree.identifier
+val xv_fn_return_type : Parse_tree.ty
+val xv_fn : Parse_tree.item_kind
+val xv_file : Parse_tree.file
+val xv_expression_without_block : Parse_tree.expression
+val xv_expression : Parse_tree.expression
+val xv_block_stmts : Parse_tree.statement list
+val xv_block_expression : Parse_tree.expression
+val xv_block : Parse_tree.block
+val xv_bin_op : Ast.Ast_types.bin_op
+val menhir_end_marker : int
