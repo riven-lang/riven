@@ -1,0 +1,9 @@
+(library
+ (name parsing)
+ (libraries ast core fmt yojson)
+ (modules_without_implementation parse_tree))
+
+(ocamllex lexer)
+
+(menhir
+ (modules parser))
